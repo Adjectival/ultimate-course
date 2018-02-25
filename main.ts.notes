@@ -1,0 +1,63 @@
+function ShoppingList() {
+    // initializes empty array
+    this.groceries = [];
+}
+
+// ES5 class declarations, with function calls (aka input params?)
+ShoppingList.prototype.addItem = function (item) {
+    this.groceries = this.groceries.concat([item]);
+};
+
+ShoppingList.prototype.removeItem = function (item) {
+    this.groceries = this.groceries.filter(function (grocery) {
+        return item !== grocery;
+        // iterates over groceries, checks that grocery !== string passed in
+        // as .filter creates a new array, this will be an array w/o the removed item
+    });
+};
+
+// ES5 constructor function aka class definition
+var myList = new ShoppingList();
+
+// console testing our add and remove methods, still ES5
+myList.addItem('Banana');
+myList.addItem('Apple');
+
+console.log(myList.groceries);
+myList.removeItem('Banana');
+
+console.log(myList.groceries);
+
+// shows that we have a function
+console.log(typeof myList);
+
+
+
+/** ES6 class declaration */
+class ShoppingList2 {
+    /** property assignment */
+    groceries: string[];
+    /** uses contructor() to create function call */
+    constructor() {
+        this.groceries = [];
+    }
+    /** ES6 can just assign public properties (methods) to classes, no prototype method needed */
+    /** here's the spread operator, shorthanding .concat from line 8 */
+    addItem(item) {
+        this.groceries = [...this.groceries, item];
+    }
+    /** example of ES6 arrow function, lexical .this in place of 'function' & 'return' */
+    /** implicit return happens same line, removes \{} & \; */
+    removeItem(item) {
+        this.groceries = this.groceries.filter((grocery) => item !== grocery);
+    }
+}
+
+
+
+const myNewList = new ShoppingList2();
+
+myNewList.addItem('Pear');
+myNewList.addItem('Pizza');
+
+console.log(myNewList.groceries);
