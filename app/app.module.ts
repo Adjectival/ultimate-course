@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     CommonModule
+  ],
+  declarations: [
+    AppComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,10 @@
 .app {
-    background-color: firebrick;
-    color: deepskyblue;
+    background: linear-gradient(to bottom, steelblue, navy);
+    color: ivory;
     font-size: 5em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode';
-    padding: 1em;
+    padding: 0.4em;
     border-radius: 0.3em;
+    border: 8px groove indigo;
     text-align: center;
 }

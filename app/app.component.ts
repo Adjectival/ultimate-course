@@ -5,22 +5,26 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
   template: `
     <h1 class="app">
-      {{ title + '!'}}
-      <p>^^ interpolate with concat</p>
-      <h2>Perform some JS features on the values:
-        {{ numberOne + numberTwo }}
-      </h2>
-      <h3>Ternary expression w/ Unicode Happiness?
-        {{ isHappy ? '😂' : '🤨' }}
-      </h3>
-    </h1>
+      <img [src]="logo" style="max-width:10vw;">
+      {{ title }}
+      <img [src]="logo" style="max-width:10vw;">
+    </h1>  
+      
+    <input type="text" [value]="name">
+    <div>{{ name }}
+    </div>
+    <h3>Ternary expression w/ Unicode Happiness?
+      {{ isHappy ? '😂' : '🤨' }}
+      <button>Happiness</button>
+    </h3>
+    
   `
 })
 export class AppComponent {
   title: string;
-  numberOne: number = 1;
-  numberTwo: number = 2;
-  isHappy: boolean = true;
+  logo: string = 'img/radioactive.svg';
+  name: string = 'Jacks';
+  isHappy: boolean = false;
   constructor() {
     this.title = 'Jacks Kicks Ass';
   }
