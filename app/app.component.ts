@@ -13,7 +13,8 @@ import { Component } from '@angular/core';
     <h2>One-way data binding aka Property Binding with Event (Blur) Listener</h2>
     <ul>
     <input type="text" [value]="name"
-      (blur)="handleBlur1($event)">
+      (blur)="handleBlur1($event)"
+      (input)="handleInput1($event)">
     <input type="text" [value]="verb"
       (blur)="handleBlur2($event)">
     <input type="text" [value]="object"
@@ -34,6 +35,10 @@ export class AppComponent {
   object: string = 'Ass';
 
   handleBlur1(event: any) {
+    this.name = event.target.value;
+    console.log(event);
+  }
+  handleInput1(event: any) {
     this.name = event.target.value;
     console.log(event);
   }
