@@ -21,9 +21,9 @@ import { Component } from '@angular/core';
       (blur)="handleBlur3($event)">
     </ul>
 
-    <h3>Ternary expression w/ Unicode Happiness?
-      {{ isHappy ? '😂' : '🤨' }}
-      <button>Change Happiness</button>
+    <h3>Ternary expression w/ Unicode Happiness Toggle
+      <span>{{ isHappy ? '😂' : '🤨' }}</span>
+      <button (click)="happyBtnClick()">Change Happiness</button>
     </h3>
   `
 })
@@ -49,6 +49,9 @@ export class AppComponent {
   handleBlur3(event: any) {
     this.object = event.target.value;
     console.log(event);
+  }
+  happyBtnClick() {
+    this.isHappy = !this.isHappy;
   }
 
   isHappy: boolean = false;
