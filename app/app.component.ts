@@ -11,15 +11,16 @@ import { Component } from '@angular/core';
     </h1>  
       
     <h2>One-way data binding aka Property Binding with Event (Blur) Listener</h2>
-    <ul>
-    <input type="text" [value]="name"
-      (blur)="handleBlur1($event)"
-      (input)="handleInput1($event)">
+    <p>
+    <input type="text" [ngModel]="name"
+      (ngModelChange)="handleChange1($event)">
+
     <input type="text" [value]="verb"
       (blur)="handleBlur2($event)">
+
     <input type="text" [value]="object"
       (blur)="handleBlur3($event)">
-    </ul>
+    </p>
 
     <h3>Ternary expression w/ Unicode Happiness Toggle
       <span>{{ isHappy ? '😂' : '🤨' }}</span>
@@ -32,16 +33,13 @@ export class AppComponent {
   logo: string = 'img/radioactive.svg';
   name: string = 'Jacks';
   verb: string = 'Kicks';
-  object: string = 'Ass';
+  object: string = 'Rocks';
 
-  handleBlur1(event: any) {
-    this.name = event.target.value;
+  handleChange1(value: string) {
+    this.name = value;
     console.log(event);
   }
-  handleInput1(event: any) {
-    this.name = event.target.value;
-    console.log(event);
-  }
+
   handleBlur2(event: any) {
     this.verb = event.target.value;
     console.log(event);
