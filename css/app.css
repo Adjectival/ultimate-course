@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: linear-gradient(to top, azure, darkblue);
   -webkit-font-smoothing: antialiased;
   color: #545e6f;
 }
