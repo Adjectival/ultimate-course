@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { Grid1Component } from './grid1/grid1.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
     FormsModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    Grid1Component
   ],
   bootstrap: [AppComponent]
 })

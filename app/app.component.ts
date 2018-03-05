@@ -21,11 +21,14 @@ import { Component } from '@angular/core';
       <input type="text" [(ngModel)]="object"
       >
     </p>
-
-    <h3>Ternary expression w/ Unicode Happiness Toggle
+    <h3>Ternary expression w/ emoji Happiness Toggle
       <span>{{ isHappy ? '😂' : '🤨' }}</span>
-      <button (click)="happyBtnClick()">Change Happiness</button>
+      <button (click)="happyBtnClick()">Boolean Happiness</button>
     </h3>
+    <h2>
+        <app-grid1></app-grid1>
+    </h2>
+
   `
 })
 export class AppComponent {
