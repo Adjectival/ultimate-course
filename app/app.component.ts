@@ -4,30 +4,39 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   styleUrls: ['app.component.scss'],
   template: `
-    <h1 class="app">
-      <img [src]="logo">
-      {{ name +' '+ verb +' '+ object }}
-      <img [src]="logo">
-    </h1>  
+    <div class="app">
+      <h1 class="">
+        <img [src]="logo">
+        {{ name +' '+ verb +' '+ object }}
+        <img [src]="logo">
+      </h1>  
+        
+      <h2>One-way data binding aka Property Binding with Event (Blur) Listener</h2>
+      <p>
+        <input type="text" #username [ngModel]="name"
+        (ngModelChange)="handleChange1($event)">
+
+        <input type="text" [value]="verb"
+        (blur)="handleBlur2($event)">
+
+        <input type="text" [(ngModel)]="object"
+        >
+      </p>
       
-    <h2>One-way data binding aka Property Binding with Event (Blur) Listener</h2>
-    <p>
-      <input type="text" [ngModel]="name"
-      (ngModelChange)="handleChange1($event)">
+      <h3>
+        <button (click)="handleRefClick(username.value)">Get 1st field Value by #ref</button>        
+        {{name2}}
+      </h3>
 
-      <input type="text" [value]="verb"
-      (blur)="handleBlur2($event)">
+      <h3>Ternary expression w/ emoji Happiness Toggle
+        <span>{{ isHappy ? '😂' : '🤨' }}</span>
+        <button (click)="happyBoolClick()">Boolean Happiness</button>
+      </h3>
+      <h2>
+          <app-grid1></app-grid1>
+      </h2>
+    </div>
 
-      <input type="text" [(ngModel)]="object"
-      >
-    </p>
-    <h3>Ternary expression w/ emoji Happiness Toggle
-      <span>{{ isHappy ? '😂' : '🤨' }}</span>
-      <button (click)="happyBtnClick()">Boolean Happiness</button>
-    </h3>
-    <h2>
-        <app-grid1></app-grid1>
-    </h2>
 
   `
 })
@@ -35,6 +44,7 @@ export class AppComponent {
   title: string;
   logo: string = 'img/radioactive.svg';
   name: string = 'Jacks';
+  name2: string = 'Alex';
   verb: string = 'Eats';
   object: string = '🍜';
 
@@ -48,7 +58,11 @@ export class AppComponent {
     console.log(event);
   }
   
-  happyBtnClick() {
+  handleRefClick(value: string) {
+    this.name2 = value;
+    console.log(value);
+  }
+  happyBoolClick() {
     this.isHappy = !this.isHappy;
   }
 

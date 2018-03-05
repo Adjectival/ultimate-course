@@ -1,4 +1,23 @@
+.downtown {
+    grid-area: DT;
+    padding: 10px;
+    background-color: maroon;
+}
+.forestpark {
+    grid-area: FP;
+    padding: 10px;
+    background-color: darkgreen;
+}
 .grid-frame {
-    grid-template-columns: repeat(10, 10%);
-    grid-template-rows: 20% 20% 10% 20% 10% 10% 10%; 
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: 20% 20% 10% 20% 10% 10% 10%;
+    grid-template-areas:
+    "FP FP . . ."
+    "FP . . . ."
+    "FP . DT . . "
+    ". . DT DT DT "
+    ". . DT DT DT "
+    ". . . DT DT "
+    ". . . DT . "
+    ;
 }
